@@ -4,7 +4,7 @@ from ShopAPI1.Interfaces import Response
 
 __author__ = 'mahshid'
 
-url = "http://127.0.0.1:8001/product/"
+url = "http://127.0.0.1:8002/product/"
 
 
 def callWS(method, params):

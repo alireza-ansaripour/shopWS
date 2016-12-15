@@ -1,11 +1,11 @@
 import json
 from ShopAPI1.Interfaces import Order, Product
-from ShopAPI1.callWS import callWS
+from ShopAPI2.callWS import callWS
 
 __author__ = 'mahshid'
 
 
-class ShopAPI1:
+class ShopAPI2:
     def add(self, name, price):
         data = {'name': name, 'price': price}
         response = callWS('add', data)
