@@ -1,6 +1,6 @@
 import json
-from Interfaces import Order, Product
-from callWS import callWS
+from ShopAPI1.Interfaces import Order, Product
+from ShopAPI1.callWS import callWS
 
 __author__ = 'mahshid'
 

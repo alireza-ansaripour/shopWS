@@ -17,3 +17,6 @@ class Product:
         self.amount = amount
         self.name = name
         self.price = price
+
+    def __str__(self):
+        return str(self.name) + " " + str(self.amount)

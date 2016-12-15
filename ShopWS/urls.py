@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from ShopWS.views import *
+from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^buy/', csrf_exempt(home)),
 ]

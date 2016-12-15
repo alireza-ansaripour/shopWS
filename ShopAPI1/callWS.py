@@ -1,6 +1,6 @@
 import requests
 import json
-from Interfaces import Response
+from ShopAPI1.Interfaces import Response
 
 __author__ = 'mahshid'
 
