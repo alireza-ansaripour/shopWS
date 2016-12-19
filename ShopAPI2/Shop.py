@@ -1,5 +1,5 @@
 import json
-from ShopAPI1.Interfaces import Order, Product
+from ShopAPI2.Interfaces import Order, Product
 from ShopAPI2.callWS import callWS
 
 __author__ = 'mahshid'
@@ -27,11 +27,12 @@ class ShopAPI2:
         data = {'names':json_list}
         print("data", data)
         response = callWS('menu', data)
-
-        print("response",response)
+        if response.code == 406:
+            return []
         list = []
         for i in response.data:
-            list.append(Product(i["name"] , i["price"] , i["amount"]))
+            if Product(i["name"] , i["price"] , i["amount"]).amount != None :
+                list.append(Product(i["name"] , i["price"] , i["amount"]))
         return list
 
 '''
