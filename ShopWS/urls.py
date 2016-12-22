@@ -1,7 +1,6 @@
 """ShopWS URL Configuration
-API.py
-callWS.py
-Interfaces.pyThe `urlpatterns` list routes URLs to views. For more information please see:
+
+The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.9/topics/http/urls/
 Examples:
 Function views
@@ -16,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from ShopWS.views import *
+from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
-    url(r'^/$', admin.site.urls),
+    url(r'^buy/', csrf_exempt(home)),
 ]
