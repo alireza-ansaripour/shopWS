@@ -1,9 +1,9 @@
-from BankAPI1.callWS import callWS
+from BankAPI2.callWS import callWS
 
 __author__ = 'alireza'
 
 
-class BankAPI1:
+class BankAPI2:
     def createAccount(self, name, password):
         data = {'name': name, 'password': password}
         response = callWS('create', data)
