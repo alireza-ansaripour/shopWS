@@ -24,3 +24,11 @@ class BankAPI1:
         response = callWS('deposit', data)
         return response
 
+    def getBalance(self, name):
+        data = {'name': name}
+        response = callWS('getaccount', data)
+        return response
+
+    def getId(self, name):
+        data = {'name': name}
+        return callWS('getaccountID', data)
