@@ -33,21 +33,3 @@ class ShopAPI2:
             if Product(i["name"] , i["price"] , i["amount"]).amount != None :
                 list.append(Product(i["name"] , i["price"] , i["amount"]))
         return list
-
-'''
-shop = ShopAPI()
-order1 = Order("mahshid" , 2)
-list = []
-list.append(order1.__dict__)
-
-list2 = []
-list2.append("mahshid")
-list2.append("test")
-list2.append("test2")
-
-# res = shop.buy(list)
-res2 = shop.menu(list2)
-
-for i in res2:
-    print(i.name , i.price , i.amount)
-'''

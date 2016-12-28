@@ -15,19 +15,23 @@ def home(request):
 
     shop = Shop()
 
-    product_list = shop.find_products(list)
+    try:
+        product_list = shop.find_products(list)
+    except Exception as e:
+        return HttpResponse(e)
 
     total_price = 0
     for item in product_list:
         total_price += int(item["price"])
 
-    # print("tital price : " , total_price)
     try:
         if shop.isDepositEnough(total_price , username):
+            shop.shopController.update_database(product_list)
             return HttpResponse(shop.bankController.buy(username,password1,password2,total_price))
         else:
             return HttpResponse("Your bank account is not enough")
     except Exception as e:
         return HttpResponse(e)
-    # print("res:" , res)
+
+
     return HttpResponse(product_list)

@@ -49,4 +49,3 @@ class BankHandler:
             res2 = self.api2.withdraw(id2, password2, amount - amount1)
             return res1, res2
         return Exception("Amount is not enough")
-

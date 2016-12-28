@@ -35,7 +35,7 @@ class Handle:
         #item1 and item2 is not None ( shop1 and shop2 has item with 'name')
         if item1!=None and item2!=None:
             if amount > (item2.amount + item1.amount):
-                raise Exception("The Amount is Not Enough")
+                raise Exception("The Product Amount is Not Enough")
 
             if item1.price <= item2.price:
                 if item1.amount >= amount :
@@ -59,7 +59,7 @@ class Handle:
         #item1 is not None and item2 is None ( shop1 has not item with 'name' and shop2 has item with 'name' )
         elif item1!=None and item2 == None:
             if amount > item1.amount:
-                raise Exception("The Amount is Not Enough")
+                raise Exception("The Product Amount is Not Enough")
             elif amount <= item1.amount :
                 price = amount * item1.price
                 item1.amount -= amount
@@ -67,13 +67,13 @@ class Handle:
         #item2 is not None and item1 is None ( shop2 has not item with 'name' and shop1 has item with 'name' )
         elif item1 == None and item2 != None:
             if amount > item2.amount :
-                raise Exception("The Amount is Not Enough")
+                raise Exception("The Product Amount is Not Enough")
             elif amount <= item2.amount :
                 price = amount * item2.price
                 item2.amount -= amount
         #item2 is None and item1 is None
         elif item1 == None and item2 == None :
-            raise Exception("The Amount is Not Enough")
+            raise Exception("The product doesn't exist")
 
         amount1 = 0
         amount2 = 0
@@ -84,13 +84,16 @@ class Handle:
 
         return (price, item1_amount - amount1, item2_amount - amount2 )
 
+    def update_database(self,list):
 
-#
-# handler = Handle()
-# list = handler.find(["table", "ali"])
-# list1 = list[0]
-# list2 = list[1]
-# print(list1)
-# print(list2)
-# print(handler.getMinimumPrice(list1,list2,"table",37))
-# print(handler.getMinimumPrice(list1,list2,"ali",37))
+        shop1_buy_list = []
+        shop2_buy_list = []
+
+        for item in list:
+            shop1_buy_list.append({"name":item["name"],"amount":int(item["shop1"])})
+            shop2_buy_list.append({"name":item["name"],"amount":int(item["shop2"])})
+
+        res1 = self.shop1.buy(shop1_buy_list)
+        res2 = self.shop2.buy(shop2_buy_list)
+
+        # return (res1 , res2)
