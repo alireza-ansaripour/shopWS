@@ -31,6 +31,7 @@ class BankHandler:
             id1 = int(res1.details)
         if res2.code == 200:
             id2 = int(res2.details)
+
         if id1 is not None and password1 is not None and (amount1 > amount):
             res1 = self.api1.withdraw(id1, password1, amount)
             if res1.code == 406:
@@ -49,8 +50,3 @@ class BankHandler:
             return res1, res2
         return Exception("Amount is not enough")
 
-
-bank = BankHandler()
-print(bank.get_user_balance("alireza"))
-res = bank.buy("alireza", "1234", "1234", 12)
-print(res)

@@ -47,9 +47,11 @@ class Handle:
                     item2.amount -= (amount-item1.amount)
                     item1.amount = 0
             elif item1.price > item2.price:
+
                 if item2.amount >= amount :
                     price = amount * item2.price
                     item2.amount -= amount
+
                 elif item1.amount >= (amount - item2.amount):
                     price = item2.amount * item2.price + (amount - item2.amount) * item1.price
                     item1.amount -= (amount - item2.amount)
@@ -60,7 +62,7 @@ class Handle:
                 raise Exception("The Amount is Not Enough")
             elif amount <= item1.amount :
                 price = amount * item1.price
-                item1.amount = amount
+                item1.amount -= amount
 
         #item2 is not None and item1 is None ( shop2 has not item with 'name' and shop1 has item with 'name' )
         elif item1 == None and item2 != None:
@@ -79,18 +81,16 @@ class Handle:
             amount1 = item1.amount
         if item2 is not None:
             amount2 = item2.amount
+
         return (price, item1_amount - amount1, item2_amount - amount2 )
 
 
-
-
-
-
-handler = Handle()
-list = handler.find(["table", "ali"])
-list1 = list[0]
-list2 = list[1]
-print(list1)
-print(list2)
-print(handler.getMinimumPrice(list1,list2,"table",37))
-print(handler.getMinimumPrice(list1,list2,"ali",37))
+#
+# handler = Handle()
+# list = handler.find(["table", "ali"])
+# list1 = list[0]
+# list2 = list[1]
+# print(list1)
+# print(list2)
+# print(handler.getMinimumPrice(list1,list2,"table",37))
+# print(handler.getMinimumPrice(list1,list2,"ali",37))

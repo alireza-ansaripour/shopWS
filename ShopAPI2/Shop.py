@@ -25,7 +25,6 @@ class ShopAPI2:
     def menu(self , list ):
         json_list = json.dumps(list)
         data = {'names':json_list}
-        print("data", data)
         response = callWS('menu', data)
         if response.code == 406:
             return []

@@ -25,7 +25,6 @@ class ShopAPI1:
     def menu(self , list ):
         json_list = json.dumps(list)
         data = {'names':json_list}
-        print("data", data)
         response = callWS('menu', data)
         list = []
         if response.code == 406:
@@ -33,7 +32,6 @@ class ShopAPI1:
         for i in response.data:
             if Product(i["name"] , i["price"] , i["amount"]).amount != None :
                 list.append(Product(i["name"] , i["price"] , i["amount"]))
-        print("list1:",list)
         return list
 
 '''

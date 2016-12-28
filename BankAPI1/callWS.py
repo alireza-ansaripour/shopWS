@@ -4,7 +4,7 @@ from BankAPI1.Interfaces import Response
 
 __author__ = 'alireza'
 
-url = 'http://127.0.0.1:8001/account/'
+url = 'http://192.168.43.33:8001/account/'
 
 
 def callWS(method, params):
